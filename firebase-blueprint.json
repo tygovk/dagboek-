@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Een persoonlijk dagboekbericht van Tygo.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unieke identificatie van het dagboekbericht."
+        },
+        "title": {
+          "type": "string",
+          "description": "Titel van het dagboekbericht."
+        },
+        "content": {
+          "type": "string",
+          "description": "Inhoud en persoonlijke reflecties van het bericht."
+        },
+        "date": {
+          "type": "string",
+          "description": "Datum in ISO formaat (YYYY-MM-DD)."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp van creatie."
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp van laatste bewerking."
+        },
+        "mood": {
+          "type": "string",
+          "description": "Geregistreerde stemming."
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Emoji behorend bij de stemming."
+        },
+        "photos": {
+          "type": "array",
+          "description": "Lijst met fotobronnen (data URLs of links)."
+        },
+        "aiInsight": {
+          "type": "string",
+          "description": "Eventueel automatisch gegenereerd AI stemmingsinzicht."
+        }
+      },
+      "required": ["id", "title", "content", "date", "createdAt", "mood"]
+    },
+    "UserAppSettings": {
+      "title": "UserAppSettings",
+      "description": "Instellingen van de dagboek-app van de gebruiker.",
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "description": "Naam van de dagboekeigenaar."
+        },
+        "pinEnabled": {
+          "type": "boolean",
+          "description": "Of PIN beveiliging actief is."
+        },
+        "pinCode": {
+          "type": "string",
+          "description": "De 4-cijferige pincode."
+        },
+        "dailyReminderEnabled": {
+          "type": "boolean",
+          "description": "Of herinneringsnotificaties aanstaan."
+        },
+        "dailyReminderTime": {
+          "type": "string",
+          "description": "Tijdstip van de herinnering."
+        }
+      },
+      "required": ["userName", "pinEnabled", "dailyReminderEnabled"]
+    }
+  },
+  "firestore": {
+    "/entries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "Collectie van dagboekberichten voor Tygo."
+    },
+    "/settings/{settingId}": {
+      "schema": "UserAppSettings",
+      "description": "Collectie van gebruikersinstellingen."
+    }
+  }
+}

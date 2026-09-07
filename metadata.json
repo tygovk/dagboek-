@@ -1,0 +1,8 @@
+{
+  "name": "Dagboek App",
+  "description": "Een persoonlijke dagboek-applicatie met AI-functionaliteiten en beveiliging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
